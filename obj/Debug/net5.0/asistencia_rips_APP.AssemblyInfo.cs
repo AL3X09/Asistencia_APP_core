@@ -11,11 +11,6 @@
 using System;
 using System.Reflection;
 
-<<<<<<< HEAD
-[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap4")]
-[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-asistencia_rips_APP-C667C7C3-ACF4-452B-B3D2-CB0BA30CECEB")]
-=======
->>>>>>> aa0d0288a4bc16044d0b584f222628ffbea88485
 [assembly: System.Reflection.AssemblyCompanyAttribute("asistencia_rips_APP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
