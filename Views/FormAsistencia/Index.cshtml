@@ -1,0 +1,132 @@
+﻿@model IEnumerable<asistencia_rips_APP.Models.FormAsistenciaClass>
+
+@{
+    ViewData["Title"] = "Asistencias";
+}
+
+<h1>Listado @ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create" asp-route-nombreusuario="@User.Identity.Name">Crear Nuevo</a>
+</p>
+<table class="table" id="tblExport">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Consec)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombres_contacto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellidos_contacto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Datos_contacto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Acciones)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Compromisos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Tema)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoAsistencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoTramite)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.is_Active)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Consec)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombres_contacto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellidos_contacto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Datos_contacto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Acciones)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Compromisos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.FirstName)
+                @Html.DisplayFor(modelItem => item.User.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tema.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoAsistencia.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoTramite.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.is_Active)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalles</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts{
+    <!--<link rel="stylesheet" href="~/css/filesaver.css" />
+    <link rel="stylesheet" href="~/css/tableexport.css" />-->
+    <script src="~/js/xlsx.core.min.js"></script>
+    <script src="~/js/filesaver.js"></script>
+    <script src="~/js/tableexport.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var tables = $("#tblExport").tableExport({
+                bootstrap: true,
+                headings: true,
+                //footers: true,
+                formats: ["xlsx", "xls", "csv"],
+                //fileName: "MyExcel",
+                position: "top",
+                ignoreRows: null,
+                ignoreCols: null,
+                //ignoreCSS: ".tableexport-ignore",
+                //emptyCSS: ".tableexport-empty",
+                trimWhitespace: true
+            });
+
+            /*new TableExport(tables, {
+                sheetname: false  // OR null OR undefined OR ""
+            });*/
+        });
+    </script>
+}

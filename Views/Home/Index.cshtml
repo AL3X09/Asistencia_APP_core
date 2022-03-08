@@ -1,0 +1,170 @@
+﻿@{
+    ViewData["Title"] = "Tablero";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="text-center">
+                <h1 class="display-4">Bienvenido</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-sm-12">
+            <!--tarjeta formulario-->
+            <div class="card" style="width: 18rem;">
+                <img src="~/img/new_formasistencia.png" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">Crear Nuevo Registro de Asistencia</h5>
+                    <p class="card-text">Diligencie el formulario de una nueva asistencia desde este módulo</p>
+                    <a asp-action="Create" asp-controller="formasistencia" asp-route-nombreusuario="@User.Identity.Name" class="btn btn-primary">Crear Nuevo</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <!--tarjeta formulario-->
+            <div class="card" style="width: 18rem;">
+                <img src="~/img/apoyo-tecnico.png" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">Listados de Asistencias</h5>
+                    <p class="card-text">Liste todas sus asistencia desde este módulo</p>
+                    <a asp-action="listaporusaurio" asp-controller="formasistencia" asp-route-nombreusuario="@User.Identity.Name" class="btn btn-primary">Ver mis listado</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <!--tarjeta formulario-->
+            <div class="card" style="width: 18rem;">
+                <img src="~/img/Listados.png" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">Listado de  Asistencias</h5>
+                    <p class="card-text">Visualice todas las asistencias desde este módulo</p>
+                    <a asp-action="index" asp-controller="formasistencia" class="btn btn-primary">Ver todos los registros</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <hr class="col-xs-12">
+            <div class="text-center">
+                <h5 class="display-4">Administrar Aplicación</h5>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-sm-12">
+            <!--tarjeta temas-->
+            <div class="card" style="width: 16rem;">
+                <img src="~/img/tema.png" class="card-img-top" alt="Administrar Temas">
+                <div class="card-body">
+                    <h5 class="card-title">Administrar Temas</h5>
+                    <p class="card-text">Administre los temas desde este módulo</p>
+                    <a asp-action="index" asp-controller="tema" class="btn btn-primary">Acceder</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <!--tarjeta tipos de asistencia-->
+            <div class="card" style="width: 16rem;">
+                <img src="~/img/tipo_asisten.png" class="card-img-top" alt="Administrar Tipo Asistencia">
+                <div class="card-body">
+                    <h5 class="card-title">Administrar Tipos de Asistencia</h5>
+                    <p class="card-text">Administre los temas desde este módulo</p>
+                    <a asp-action="index" asp-controller="tipoasistencia" class="btn btn-primary">Acceder</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <!--tarjeta estados de asistencia-->
+            <div class="card" style="width: 16rem;">
+                <img src="~/img/estado_tramite.png" class="card-img-top" alt="Administrar Tipo Asistencia">
+                <div class="card-body">
+                    <h5 class="card-title">Administrar Estados de Asistencia</h5>
+                    <p class="card-text">Administre los estados que pueden tener sus asistencias desde este módulo</p>
+                    <a asp-action="index" asp-controller="estadotramite" class="btn btn-primary">Acceder</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    </br>
+    <div class="row">
+        <div class="col-md-4 col-sm-12">
+            <!--tarjeta temas-->
+            <div class="card" style="width: 16rem;">
+                <img src="~/img/direccion.png" class="card-img-top" alt="Administrar Direcciónes">
+                <div class="card-body">
+                    <h5 class="card-title">Administrar Dirección</h5>
+                    <p class="card-text">Administre las direcciones de la entidad desde este módulo</p>
+                    <a asp-action="index" asp-controller="direccion" class="btn btn-primary">Acceder</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <!--tarjeta temas-->
+            <div class="card" style="width: 16rem;">
+                <img src="~/img/subdirerec.png" class="card-img-top" alt="Administrar Subdireccion">
+                <div class="card-body">
+                    <h5 class="card-title">Administrar Subdireccion</h5>
+                    <p class="card-text">Administre las subdirecciones desde este módulo</p>
+                    <a asp-action="index" asp-controller="subdireccion" class="btn btn-primary">Acceder</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <!--tarjeta temas-->
+            <div class="card" style="width: 16rem;">
+                <img src="~/img/user_subdire.png" class="card-img-top" alt="Asociar Subdirección">
+                <div class="card-body">
+                    <h5 class="card-title">Asociar Subdirección</h5>
+                    <p class="card-text">Asocie las subdirección a la que pertenece cada usuario</p>
+                    <a asp-action="index" asp-controller="usersubdireccion" class="btn btn-primary">Acceder</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <!--tarjeta temas-->
+            <div class="card" style="width: 16rem;">
+                <img src="~/img/user_subdire.png" class="card-img-top" alt="Asociar Subdirección">
+                <div class="card-body">
+                    <h5 class="card-title">Administrar Correo</h5>
+                    <p class="card-text">Configure las salidas de correo</p>
+                    <a asp-action="index" asp-controller="configcorreo" class="btn btn-primary">Acceder</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col">
+            <hr class="col-xs-12">
+            <div class="text-center">
+                <h5 class="display-4">Administrar Usuarios</h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 col-sm-12">
+            <!--tarjeta Roles-->
+            <div class="card" style="width: 16rem;">
+                <img src="~/img/direccion.png" class="card-img-top" alt="Administrar Roles">
+                <div class="card-body">
+                    <h5 class="card-title">Administrar Roles</h5>
+                    <p class="card-text">Administre los Roles desde este módulo</p>
+                    <a asp-action="index" asp-controller="Roles" class="btn btn-primary">Acceder</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+

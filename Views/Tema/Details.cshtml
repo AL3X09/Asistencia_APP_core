@@ -1,0 +1,29 @@
+﻿@model asistencia_rips_APP.Models.TemaClass
+
+@{
+    ViewData["Title"] = "Detalles Tema";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.is_Active)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.is_Active)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+    <a asp-action="Index">Regresar al listado</a>
+</div>

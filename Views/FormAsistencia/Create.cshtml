@@ -1,0 +1,93 @@
+﻿@model asistencia_rips_APP.Models.FormAsistenciaClass
+
+@{
+    ViewData["Title"] = "Crear Asistencia";
+    var datosu = ViewData["dati"];
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Consec" class="control-label"></label>
+                <input asp-for="Consec" class="form-control" value="@ViewBag.consec" readonly />
+                <span asp-validation-for="Consec" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fecha" class="control-label"></label>
+                <input asp-for="Fecha" class="form-control" />
+                <span asp-validation-for="Fecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nombres_contacto" class="control-label"></label>
+                <input asp-for="Nombres_contacto" class="form-control" />
+                <span asp-validation-for="Nombres_contacto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apellidos_contacto" class="control-label"></label>
+                <input asp-for="Apellidos_contacto" class="form-control" />
+                <span asp-validation-for="Apellidos_contacto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Datos_contacto" class="control-label"></label>
+                <input asp-for="Datos_contacto" class="form-control" />
+                <span asp-validation-for="Datos_contacto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoAsistenciaId" class="control-label"></label>
+                <select asp-for="TipoAsistenciaId" class="form-control" asp-items="ViewBag.TipoAsistenciaId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Acciones" class="control-label"></label>
+                <input asp-for="Acciones" class="form-control" />
+                <span asp-validation-for="Acciones" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Compromisos" class="control-label"></label>
+                <input asp-for="Compromisos" class="form-control" />
+                <span asp-validation-for="Compromisos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Firma" class="control-label"></label>
+                <input asp-for="Firma" class="form-control" type="hidden" />
+                <span asp-validation-for="Firma" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemaId" class="control-label"></label>
+                <select asp-for="TemaId" class="form-control" asp-items="ViewBag.TemaId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstadoTramiteId" class="control-label"></label>
+                <select asp-for="EstadoTramiteId" class="form-control" asp-items="ViewBag.EstadoTramiteId"></select>
+            </div>
+            <div class="form-group">
+                <label class="control-label" asp-for="UserId"></label>
+                <input class="form-control" value="@ViewBag.fullname" readonly />
+                <input class="form-control" asp-for="UserId" type="hidden" value="@ViewBag.iduser" />
+            </div>
+
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="is_Active" checked /> @Html.DisplayNameFor(model => model.is_Active)
+                </label>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Regresar al listado</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

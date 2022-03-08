@@ -1,0 +1,30 @@
+﻿@model asistencia_rips_APP.Models.UserSubDireccionClass
+
+@{
+    ViewData["Title"] = "Detalles Asociación";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Subdireccion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Subdireccion.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.FirstName)
+            @Html.DisplayFor(model => model.User.LastName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+    <a asp-action="Index">Regresar al listado</a>
+</div>

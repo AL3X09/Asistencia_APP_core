@@ -1,0 +1,49 @@
+{
+  "dependencies": {
+    "mssql2": {
+      "restored": true,
+      "restoreTime": "2021-11-16T17:29:29.9049925Z"
+    },
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2021-11-16T17:28:29.961685Z"
+    }
+  },
+  "parameters": {
+    "mssql2.subscriptionId": {
+      "Name": "mssql2.subscriptionId",
+      "Type": "subscription",
+      "Value": "0395ba65-1ebd-49a0-9c0a-47506a704a7b"
+    },
+    "mssql2.resourceGroupName": {
+      "Name": "mssql2.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "pruebasazure"
+    },
+    "subscriptionId": {
+      "Name": "subscriptionId",
+      "Type": "subscription",
+      "Value": "0395ba65-1ebd-49a0-9c0a-47506a704a7b"
+    },
+    "asistenciaripsAPP2021.subscriptionId": {
+      "Name": "asistenciaripsAPP2021.subscriptionId",
+      "Type": "subscription",
+      "Value": "0395ba65-1ebd-49a0-9c0a-47506a704a7b"
+    },
+    "asistenciaripsAPP2021.resourceGroupLocation": {
+      "Name": "asistenciaripsAPP2021.resourceGroupLocation",
+      "Type": null,
+      "Value": "southcentralus"
+    },
+    "asistenciaripsAPP2021.resourceGroupName": {
+      "Name": "asistenciaripsAPP2021.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "pruebasazure"
+    },
+    "asistenciaripsAPP2021.resourceName": {
+      "Name": "asistenciaripsAPP2021.resourceName",
+      "Type": null,
+      "Value": "asistenciaripsAPP2021"
+    }
+  }
+}
