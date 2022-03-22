@@ -7151,7 +7151,7 @@ button.bg-dark:focus {
   }
   .flex-sm-row-reverse {
     -ms-flex-direction: row-reverse !important;
-    flex-direction: row-reverse !important;
+    /*flex-direction: row-reverse !important;*/
   }
   .flex-sm-column-reverse {
     -ms-flex-direction: column-reverse !important;

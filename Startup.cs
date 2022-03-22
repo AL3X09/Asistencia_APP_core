@@ -1,19 +1,12 @@
-<<<<<<< HEAD
 using asistencia_rips_APP.Data;
 using asistencia_rips_APP.Models;
-=======
->>>>>>> aa0d0288a4bc16044d0b584f222628ffbea88485
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Newtonsoft.Json.Serialization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace asistencia_rips_APP
 {
@@ -29,11 +22,10 @@ namespace asistencia_rips_APP
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-<<<<<<< HEAD
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDatabaseDeveloperPageExceptionFilter();
+            //services.AddDatabaseDeveloperPageExceptionFilter();
 
             /*services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();*/
@@ -47,8 +39,6 @@ namespace asistencia_rips_APP
                 .AddDefaultUI();
 
             services.AddRazorPages();
-=======
->>>>>>> aa0d0288a4bc16044d0b584f222628ffbea88485
             services.AddControllersWithViews();
 
             /*
@@ -82,6 +72,7 @@ namespace asistencia_rips_APP
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                //app.UseMigrationsEndPoint();
             }
             else
             {
@@ -93,12 +84,13 @@ namespace asistencia_rips_APP
 
             //enviar estatus de la pagina en plano
             //app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
-           
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -108,6 +100,7 @@ namespace asistencia_rips_APP
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
             //pattern: "{controller=Home}/{action=Index}/{id?}");
         }
