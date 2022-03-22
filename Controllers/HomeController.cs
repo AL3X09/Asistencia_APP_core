@@ -20,7 +20,7 @@ namespace asistencia_rips_APP.Controllers
             _logger = logger;
         }
 
-        public IActionResult Indexzx()
+        public IActionResult Indexnosirve()
         {
             return View("/Areas/Identity/Account/Login.cshtml");
         }

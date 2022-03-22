@@ -95,7 +95,6 @@ namespace asistencia_rips_APP
 
             app.UseEndpoints(endpoints =>
             {
-
                 //endpoints.MapDefaultControllerRoute().RequireAuthorization();
                 endpoints.MapControllerRoute(
                     name: "default",
