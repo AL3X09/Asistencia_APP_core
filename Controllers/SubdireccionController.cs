@@ -48,7 +48,7 @@ namespace asistencia_rips_APP.Controllers
         // GET: Subdireccion/Create
         public IActionResult Create()
         {
-            ViewData["DireccionId"] = new SelectList(_context.Direccion, "Id", "Nombre");
+            ViewData["DireccionId"] = new SelectList(_context.Direccion.Where(e => e.is_Active == true), "Id", "Nombre");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace asistencia_rips_APP.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DireccionId"] = new SelectList(_context.Direccion, "Id", "Nombre", subdireccionClass.DireccionId);
+            ViewData["DireccionId"] = new SelectList(_context.Direccion.Where(e => e.is_Active == true), "Id", "Nombre", subdireccionClass.DireccionId);
             return View(subdireccionClass);
         }
 
@@ -82,7 +82,7 @@ namespace asistencia_rips_APP.Controllers
             {
                 return NotFound();
             }
-            ViewData["DireccionId"] = new SelectList(_context.Direccion, "Id", "Nombre", subdireccionClass.DireccionId);
+            ViewData["DireccionId"] = new SelectList(_context.Direccion.Where(e => e.is_Active == true), "Id", "Nombre", subdireccionClass.DireccionId);
             return View(subdireccionClass);
         }
 
@@ -118,7 +118,7 @@ namespace asistencia_rips_APP.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DireccionId"] = new SelectList(_context.Direccion, "Id", "Nombre", subdireccionClass.DireccionId);
+            ViewData["DireccionId"] = new SelectList(_context.Direccion.Where(e => e.is_Active == true), "Id", "Nombre", subdireccionClass.DireccionId);
             return View(subdireccionClass);
         }
 

@@ -19,8 +19,9 @@ namespace asistencia_rips_APP.Models
         [Display(Name = "Consecutivo")]
         public int Consec { get; set; }
 
+        //[RegularExpression(@"^(3[01]|[12][0-9]|0[1-9])[-/](1[0-2]|0[1-9])[-/][0-9]{4}$", ErrorMessageResourceName = "Fecha no Valida")]
         [DataType(DataType.Date)]  
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = false)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "El Campo {0} es obligatorio")]
         [Display(Name = "Fecha")]
         public DateTime Fecha { get; set; }

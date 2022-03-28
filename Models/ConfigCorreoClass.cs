@@ -15,6 +15,7 @@ namespace asistencia_rips_APP.Models
         public int Id { get; set; } //Clave primaria
         
         [Required(AllowEmptyStrings = false)]
+        [EmailAddress]
         [Display(Name = "Usuario")]
         public string Username { get; set; }
         public string Password { get; set; }

@@ -3,10 +3,14 @@ using asistencia_rips_APP.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
+using System.Collections.Generic;
+using System.Globalization;
 
 namespace asistencia_rips_APP
 {
@@ -59,10 +63,22 @@ namespace asistencia_rips_APP
                 options.Password.RequireNonAlphanumeric = true;
                 options.Password.RequiredUniqueChars = 5;
             });
-
             //Email configuration
             //services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
             //services.AddTransient<IEmailSender, sendMail>();
+            #region localización
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                var supportedCultures = new List<CultureInfo>
+                    {
+                        new CultureInfo("es-CO"),
+                    };
+
+                options.DefaultRequestCulture = new RequestCulture("es-CO");
+                options.SupportedCultures = supportedCultures;
+                options.SupportedUICultures = supportedCultures;
+            });
+            #endregion 
 
         }
 
@@ -81,6 +97,12 @@ namespace asistencia_rips_APP
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            #region snippet2
+            // after app.UseRouting();
+            var locOptions = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
+            app.UseRequestLocalization(locOptions.Value);
+            #endregion
 
             //enviar estatus de la pagina en plano
             //app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
@@ -102,6 +124,15 @@ namespace asistencia_rips_APP
                 endpoints.MapRazorPages();
             });
             //pattern: "{controller=Home}/{action=Index}/{id?}");
+
+            //Globalización
+            /*var supportedCultures = new[] { "es-CO" };
+            var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultures[0])
+                .AddSupportedCultures(supportedCultures)
+                .AddSupportedUICultures(supportedCultures);
+
+            app.UseRequestLocalization(localizationOptions);*/
+
         }
     }
 }

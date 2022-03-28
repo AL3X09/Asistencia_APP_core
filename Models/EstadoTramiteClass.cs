@@ -22,5 +22,8 @@ namespace asistencia_rips_APP.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "El Campo {0} es obligatorio")]
         [Display(Name = "Fecha")]
         public DateTime Fecha { get; set; }
+
+        [Required]
+        public bool is_Active { get; set; }
     }
 }

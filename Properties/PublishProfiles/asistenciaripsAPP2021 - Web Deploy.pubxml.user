@@ -7,6 +7,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA+narMWVOxUuRis6zpIkLOgAAAAACAAAAAAADZgAAwAAAABAAAADxiGx3/cxQhT7BowfqsfQXAAAAAASAAACgAAAAEAAAABl4DCzv/QzwX+pNgTudXzCAAAAAhKcsjjIUg4b5vLiTmAffpTeBVDvxez7HraBX/EHGRgg3YoByXsRNCC4KY+z54rAhcTMAYB/Hceq10Ph5R1Dq69rxlQsRQJd3aIDDlhUsu22wFj/mhuOL7qDdTtg1csBaPszoibQQ26RB6AI1wzQpm0r/HsaT9JOLgLvonH/m0GIUAAAAInh62caQ7gmAEMroeHmTslXf66Q=</EncryptedPassword>
-    <History>False|2022-03-22T19:53:18.6778208Z;</History>
+    <History>True|2022-03-28T20:41:34.0155757Z;False|2022-03-28T15:36:26.3622485-05:00;False|2022-03-22T14:53:18.6778208-05:00;</History>
+    <_PublishTargetUrl>B:\NETAPPS\apps_publicadas</_PublishTargetUrl>
   </PropertyGroup>
 </Project>

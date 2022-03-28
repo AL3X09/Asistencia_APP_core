@@ -50,7 +50,7 @@ namespace asistencia_rips_APP.Controllers
         public IActionResult Create()
         {
             
-            ViewData["SubdireccionData"] = new SelectList(_context.Subdireccion, "Id", "Nombre");
+            ViewData["SubdireccionData"] = new SelectList(_context.Subdireccion.Where(e => e.is_Active == true), "Id", "Nombre");
             ViewData["UserData"] = new SelectList(from x in _context.Users select new { x.Id, FullName = x.FirstName + " " + x.LastName }, "Id", "FullName");
             //ViewData["SubdireccionId"] = new SelectList(_context.Subdireccion, "Id", "Id");
             return View();
@@ -69,7 +69,7 @@ namespace asistencia_rips_APP.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["SubdireccionData"] = new SelectList(_context.Subdireccion, "Id", "Nombre", userSubDireccionClass.SubdireccionId);
+            ViewData["SubdireccionData"] = new SelectList(_context.Subdireccion.Where(e => e.is_Active == true), "Id", "Nombre", userSubDireccionClass.SubdireccionId);
             ViewData["UserData"] = new SelectList(from x in _context.Users select new { x.Id, FullName = x.FirstName + " " + x.LastName }, "Id", "FullName", userSubDireccionClass.UserId);
             return View(userSubDireccionClass);
         }
@@ -87,7 +87,7 @@ namespace asistencia_rips_APP.Controllers
             {
                 return NotFound();
             }
-            ViewData["SubdireccionData"] = new SelectList(_context.Subdireccion, "Id", "Nombre");
+            ViewData["SubdireccionData"] = new SelectList(_context.Subdireccion.Where(e => e.is_Active == true), "Id", "Nombre");
             ViewData["UserData"] = new SelectList(from x in _context.Users select new { x.Id, FullName = x.FirstName + " " + x.LastName }, "Id", "FullName");
             //ViewData["SubdireccionId"] = new SelectList(_context.Subdireccion, "Id", "Id", userSubDireccionClass.SubdireccionId);
             return View(userSubDireccionClass);
@@ -125,7 +125,7 @@ namespace asistencia_rips_APP.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["SubdireccionData"] = new SelectList(_context.Subdireccion, "Id", "Nombre");
+            ViewData["SubdireccionData"] = new SelectList(_context.Subdireccion.Where(e => e.is_Active == true), "Id", "Nombre");
             ViewData["UserData"] = new SelectList(from x in _context.Users select new { x.Id, FullName = x.FirstName + " " + x.LastName }, "Id", "FullName");
             //ViewData["SubdireccionId"] = new SelectList(_context.Subdireccion, "Id", "Id", userSubDireccionClass.SubdireccionId);
             return View(userSubDireccionClass);
