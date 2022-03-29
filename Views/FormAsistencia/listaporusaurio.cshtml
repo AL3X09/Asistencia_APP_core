@@ -9,7 +9,7 @@
 <p>
     <a asp-action="Create" asp-route-nombreusuario="@User.Identity.Name">Crear Nuevo</a>
 </p>
-<table class="table" id="tblExport">
+<table class="table" id="tblasistencia">
     <thead>
         <tr>
             <th>
@@ -93,10 +93,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.is_Active)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Detalles</a>
-            </td>
+            
+                <td id="acciones">
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Detalles</a>
+                </td>
         </tr>
         }
     </tbody>
@@ -110,19 +111,24 @@
     <script src="~/js/tableexport.js"></script>
     <script type="text/javascript">
         $(function () {
-            var tables = $("#tblExport").tableExport({
+
+            var tabla = $('#tblasistencia').tableExport({
+
                 bootstrap: true,
                 headings: true,
                 //footers: true,
                 formats: ["xlsx", "xls", "csv"],
-                //fileName: "MyExcel",
+
                 position: "top",
                 ignoreRows: null,
-                ignoreCols: null,
+                ignoreCols: [11,12],
                 //ignoreCSS: ".tableexport-ignore",
                 //emptyCSS: ".tableexport-empty",
-                trimWhitespace: true
+                trimWhitespace: true,
+                sheetname: "Asistencias @User.Identity.Name",
+                fileName: true
             });
+
 
             /*new TableExport(tables, {
                 sheetname: false  // OR null OR undefined OR ""

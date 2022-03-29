@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<asistencia_rips_APP.Models.FormAsistenciaClass>
 
 @{
-    ViewData["Title"] = "Asistencias";
+    ViewData["Title"] = "Listado General de Asistencia";
 }
 
 <h1>Listado @ViewData["Title"]</h1>
@@ -9,7 +9,7 @@
 <p>
     <a asp-action="Create" asp-route-nombreusuario="@User.Identity.Name">Crear Nuevo</a>
 </p>
-<table class="table" id="tblExport">
+<table class="table" id="tblasistencias">
     <thead>
         <tr>
             <th>
@@ -110,18 +110,19 @@
     <script src="~/js/tableexport.js"></script>
     <script type="text/javascript">
         $(function () {
-            var tables = $("#tblExport").tableExport({
+
+            $('#tblasistencias').tableExport({
                 bootstrap: true,
                 headings: true,
                 //footers: true,
                 formats: ["xlsx", "xls", "csv"],
-                //fileName: "MyExcel",
                 position: "top",
                 ignoreRows: null,
                 ignoreCols: null,
                 //ignoreCSS: ".tableexport-ignore",
                 //emptyCSS: ".tableexport-empty",
-                trimWhitespace: true
+                trimWhitespace: true,
+                sheetname: "Todas Asistencias",
             });
 
             /*new TableExport(tables, {

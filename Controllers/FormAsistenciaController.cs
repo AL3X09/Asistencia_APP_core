@@ -88,7 +88,7 @@ namespace asistencia_rips_APP.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Consec,Fecha,Nombres_contacto,Apellidos_contacto,Datos_contacto,Acciones,Compromisos,Firma,TemaId,TipoAsistenciaId,UserId,is_Active")] FormAsistenciaClass formAsistenciaClass)
+        public async Task<IActionResult> Create([Bind("Id,Consec,Fecha,Nombres_contacto,Apellidos_contacto,Datos_contacto,Acciones,Compromisos,Firma,TemaId,TipoAsistenciaId,EstadoTramiteId,UserId,is_Active")] FormAsistenciaClass formAsistenciaClass)
         {
             if (ModelState.IsValid)
             {
@@ -143,7 +143,7 @@ namespace asistencia_rips_APP.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Consec,Fecha,Nombres_contacto,Apellidos_contacto,Datos_contacto,Acciones,Compromisos,Firma,TemaId,TipoAsistenciaId,is_Active")] FormAsistenciaClass formAsistenciaClass)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Consec,Fecha,Nombres_contacto,Apellidos_contacto,Datos_contacto,Acciones,Compromisos,Firma,TemaId,TipoAsistenciaId,EstadoTramiteId,UserId,is_Active")] FormAsistenciaClass formAsistenciaClass)
         {
             if (id != formAsistenciaClass.Id)
             {
