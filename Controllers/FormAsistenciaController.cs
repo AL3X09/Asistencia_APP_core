@@ -59,10 +59,11 @@ namespace asistencia_rips_APP.Controllers
         // GET: FormAsistencia/Create
         public IActionResult Create_old()
         {
-            ViewData["TemaId"] = new SelectList(_context.Tema, "Id", "Nombre");
+            /*ViewData["TemaId"] = new SelectList(_context.Tema, "Id", "Nombre");
             ViewData["TipoAsistenciaId"] = new SelectList(_context.Tipoasistencia, "Id", "Nombre");
             ViewData["EstadoTramiteId"] = new SelectList(_context.EstadoTramite, "Id", "Nombre");
             ViewData["Userdata"] = (from x in _context.Users select new { x.Id, FullName = x.FirstName + " " + x.LastName }, "Id", "FullName");
+            */
             return View();
         }
         public IActionResult Create(String nombreusuario)
@@ -71,7 +72,6 @@ namespace asistencia_rips_APP.Controllers
             ViewData["TemaId"] = new SelectList(_context.Tema.Where(t => t.is_Active == true), "Id", "Nombre");
             ViewData["TipoAsistenciaId"] = new SelectList(_context.Tipoasistencia.Where(p => p.is_Active == true), "Id", "Nombre");
             ViewData["EstadoTramiteId"] = new SelectList(_context.EstadoTramite.Where(e => e.is_Active == true), "Id", "Nombre");
-
 
             ViewData["iduser"] = (from x in _context.Users
                                     where x.UserName == nombreusuario
@@ -96,6 +96,7 @@ namespace asistencia_rips_APP.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["consec"] = formAsistenciaClass.Consec;
             ViewData["TemaId"] = new SelectList(_context.Tema.Where(t => t.is_Active == true), "Id", "Nombre", formAsistenciaClass.TemaId);
             ViewData["TipoAsistenciaId"] = new SelectList(_context.Tipoasistencia.Where(p => p.is_Active == true), "Id", "Nombre", formAsistenciaClass.TipoAsistenciaId);
             ViewData["EstadoTramiteId"] = new SelectList(_context.EstadoTramite.Where(e => e.is_Active == true), "Id", "Nombre", formAsistenciaClass.EstadoTramiteId);
