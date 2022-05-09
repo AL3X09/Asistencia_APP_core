@@ -56,7 +56,7 @@ namespace asistencia_rips_APP.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,Fecha")] EstadoTramiteClass estadoTramiteClass)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,Fecha,is_active")] EstadoTramiteClass estadoTramiteClass)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace asistencia_rips_APP.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,is_Active")] EstadoTramiteClass estadoTramiteClass)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Fecha,is_Active")] EstadoTramiteClass estadoTramiteClass)
         {
             if (id != estadoTramiteClass.Id)
             {

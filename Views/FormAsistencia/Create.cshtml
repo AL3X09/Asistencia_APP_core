@@ -19,7 +19,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Fecha" class="control-label"></label>
-                <input asp-for="Fecha" class="form-control" />
+                <input asp-for="Fecha" min="2019-01-01" class="form-control" />
                 <span asp-validation-for="Fecha" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -42,6 +42,13 @@
                 <select asp-for="TipoAsistenciaId" class="form-control" asp-items="ViewBag.TipoAsistenciaId"></select>
             </div>
             <div class="form-group">
+                <label asp-for="TemaId" class="control-label"></label>
+                <input id="TemaN" name="TemaN" class="form-control" required>
+                <input type="hidden" id="TemaId" name="TemaId" class="form-control" required>
+                <!--<select asp-for="TemaId" class="form-control" asp-items="ViewBag.TemaId"></select>-->
+
+            </div>
+            <div class="form-group">
                 <label asp-for="Acciones" class="control-label"></label>
                 <textarea asp-for="Acciones" class="form-control" /></textarea>
                 <span asp-validation-for="Acciones" class="text-danger"></span>
@@ -55,10 +62,6 @@
                 <label asp-for="Firma" class="control-label"></label>
                 <input asp-for="Firma" class="form-control" type="hidden" />
                 <span asp-validation-for="Firma" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TemaId" class="control-label"></label>
-                <select asp-for="TemaId" class="form-control" asp-items="ViewBag.TemaId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="EstadoTramiteId" class="control-label"></label>
@@ -84,10 +87,52 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Regresar al listado</a>
-</div>
+<!--<div>
+    <a asp-action="index">Regresar al listado</a>
+</div>-->
 
 @section Scripts {
+    <script type="text/javascript">
+
+        /*fetch('/api/tema/listar?id='+)
+            .then(function (response) {
+                // Transforma la respuesta. En este caso lo convierte a JSON
+                return response.json();
+            })
+            .then(function (json) {
+                // Imprimo por consola
+                console.log(json)
+            });*/
+
+
+        var options = {
+
+            url: function (name) {
+                return "/api/tema/listar?name="+name;
+            },
+            getValue: "nombre",
+            ajaxSettings: {
+                dataType: "json",
+                method: "GET",
+                data: {
+                    dataType: "json"
+                }
+            },
+            list: {
+                onSelectItemEvent: function () {
+                    var index = $("#TemaN").getSelectedItemData().id;
+                    //console.log(index)
+                    $("#TemaId").val(index)//.trigger("change");
+                }
+
+            },
+            placeholder: "Seleccione un tema",
+            requestDelay: 400
+        };
+
+        $("#TemaN").easyAutocomplete(options);
+
+    </script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
 }

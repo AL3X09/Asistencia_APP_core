@@ -24,6 +24,7 @@ namespace asistencia_rips_APP.Models
         public DateTime Fecha { get; set; }
 
         [Required]
+        [Display(Name = "Activo")]
         public bool is_Active { get; set; }
     }
 }

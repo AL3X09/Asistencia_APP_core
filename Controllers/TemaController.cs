@@ -27,6 +27,36 @@ namespace asistencia_rips_APP.Controllers
             return View(await _context.Tema.ToListAsync());
         }
 
+        // GET: listar
+        [Route("api/Tema/Listar")]
+        [Produces("application/json")]
+        public IActionResult Listar(string name)
+        {
+            var listatemas =  _context.Tema.Where(t=>t.is_Active == true && t.Nombre.Contains(name)).ToList();
+            /*var listatemas;          
+                listatemas = _context.Tema.ToListAsync();*/
+
+            if (listatemas == null)
+            {
+                return NotFound();
+            }
+            return Ok(listatemas);
+        }
+
+        // GET: listar
+        [Route("api/Tema/BuscarId")]
+        [Produces("application/json")]
+        public IActionResult ListarById(string id)
+        {
+            var listatema = _context.Tema.Where(t => t.is_Active == true && t.Id.Equals(id)).ToList();
+
+            if (listatema == null)
+            {
+                return NotFound();
+            }
+            return Ok(listatema);
+        }
+
         // GET: Tema/Details/5
         public async Task<IActionResult> Details(int? id)
         {

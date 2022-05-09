@@ -125,12 +125,22 @@ namespace asistencia_rips_APP.Controllers
             {
                 return NotFound();
             }
-            ViewData["TemaId"] = new SelectList(_context.Tema.Where(e => e.is_Active == true), "Id", "Nombre", formAsistenciaClass.TemaId);
+            ViewData["TemaId"] = (from x in _context.Tema
+                                  where x.Id == formAsistenciaClass.TemaId
+                                  select x.Id).FirstOrDefault(); 
+            //_context.Tema.Where(e => e.is_Active == true && e.Id == formAsistenciaClass.TemaId).Select(e => e.Id).FirstOrDefaultAsync();
+            
             ViewData["TipoAsistenciaId"] = new SelectList(_context.Tipoasistencia.Where(e => e.is_Active == true), "Id", "Nombre", formAsistenciaClass.TipoAsistenciaId);
             ViewData["EstadoTramiteId"] = new SelectList(_context.EstadoTramite.Where(e => e.is_Active == true), "Id", "Nombre", formAsistenciaClass.EstadoTramiteId);
+
+            ViewData["TemaN"] = (from x in _context.Tema
+                                 where x.Id == formAsistenciaClass.TemaId
+                                 select x.Nombre.ToString()).FirstOrDefault();
+
             ViewData["iduser"] = (from x in _context.Users
                                   where x.Id == formAsistenciaClass.UserId
                                   select x.Id).FirstOrDefault();
+
             ViewData["fullname"] = (from x in _context.Users
                                     where x.Id == formAsistenciaClass.UserId
                                     select x.FirstName + " " + x.LastName
@@ -171,9 +181,15 @@ namespace asistencia_rips_APP.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TemaId"] = new SelectList(_context.Tema.Where(e => e.is_Active == true), "Id", "Nombre", formAsistenciaClass.TemaId);
+            
             ViewData["TipoAsistenciaId"] = new SelectList(_context.Tipoasistencia.Where(e => e.is_Active == true), "Id", "Nombre", formAsistenciaClass.TipoAsistenciaId);
             ViewData["EstadoTramiteId"] = new SelectList(_context.EstadoTramite.Where(e => e.is_Active == true), "Id", "Nombre", formAsistenciaClass.EstadoTramiteId);
+            ViewData["TemaN"] = (from x in _context.Tema
+                                 where x.Id == formAsistenciaClass.TemaId
+                                 select x.Nombre.ToString()).FirstOrDefault();
+            ViewData["TemaId"] = (from x in _context.Tema
+                                  where x.Id == formAsistenciaClass.TemaId
+                                  select x.Id).FirstOrDefault();
             ViewData["iduser"] = (from x in _context.Users
                                   where x.Id == formAsistenciaClass.UserId
                                   select x.Id).FirstOrDefault();
